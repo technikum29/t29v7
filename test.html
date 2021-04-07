@@ -1,0 +1,287 @@
+<!doctype html>
+<html class="no-js" lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>technikum29 v7 prototype test</title> 
+  <link rel="stylesheet" href="skin/build.css/t29v7.css" type="text/css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body class="lang-de">
+<div id="sheet"><!-- sheet wrapper -->
+    <header>
+        <h1 role="banner"><a href="#" title="Zur technikum29 Startseite">technikum29</a></h1>
+		<nav class="top">
+            <ul>
+                <li><a href="#" class="dropdown" id="language-chooser">Sprachauswahl</a>
+                    <ul>
+                        <li class='active'><a href='/de/' title='Sie betrachten gerade die Seite &quot;Besuchen&quot; auf Deutsch'>Deutsch</a></li>
+                        <li><a href='/en/' title='Read the page &quot;Start&quot; in English'>English</a></li>
+                    </ul>
+                <li><a href="#" class="dropdown" id="search-link">Suche</a>
+                    <form method="get" action="/de/suche.php">
+                        <input type="text" value="" placeholder="Suchen" name="q" class="text">
+                        <input type="submit" value="Suchen" class="button">
+                    </form>
+            </ul>
+        </nav>
+		<nav class="horizontal">
+            <ul>
+                <li><a href="#nav-left">Museum</a>
+                <li><a href="#nav-right">Ausstellung</a>
+                <li><a href="#">Wiki</a>
+            </ul>
+        </nav>
+    </header>
+    <div style="width:260px; background:green; height:20px; display: inline-block;"></div>
+    <div style="width:940px; background:red; height:20px;  display: inline-block;"></div>
+    <div class="flex-row">
+        <div class="flex-column main" id="main-text">
+
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+
+        <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
+
+        <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
+
+        <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer
+        
+        </div>
+        <div class="flex-column nav" id="nav-left">
+            <section class="sidebar top">
+            <h3>Hauptnavigation</h3>
+            
+            <nav class="side contains-menu">
+            
+            <ul class="u1">
+                <li class="first"><a href="#">Museum</a>
+                <ul>
+                    <li class="current active"><a href="/de/" title="Aktuelle Seite" id="sidebar_link_startseite">Besuchen</a></li>
+                    <li><a href="/de/termine.php" id="sidebar_link_termine">Termine</a></li>
+                    <li><a href="/de/blog.php" id="sidebar_link_blog">Neues</a>
+                        <ul class="u2 rich-text hidden">
+                            <li>a
+                            <li>b
+                            <li>c
+                        </ul>
+                    </li>
+                    <li><a href="/de/faq.php" id="sidebar_link_faq">FAQ</a></li>
+                </ul>
+                
+                <li><a href="#">Mitmachen</a>
+                 <ul>
+                    <li><a href="/de/team.php" id="sidebar_link_team">Team</a></li>
+                    <li><a href="#">Unterstützen</a>
+                    <li><a href="#">Gesucht</a></li>
+                    <li><a href="/de/impressum.php" id="sidebar_link_impressum">Kontakt</a></li>
+                    <li><a href="#">Spenden</a></li>
+                 </ul>
+                
+                <li><a href="#">Wiki</a>
+                <ul>
+                    <li><a href="#">Letzte Änderungen</a>
+                    <li><a class="hidden-in-nav" href="/de/sitemap.php" id="sidebar_link_sitemap">Sitemap</a></li>
+                    <li><a href="#">Werkzeuge</a>
+                        <ul>
+                            <li><a href="#">Seiteninformationen</a>
+                            <li><a href="#">Permanenter Link</a>
+                            <li><a href="#">Links auf diese Seite</a>
+                        </ul>
+                </ul>
+            </ul>
+            
+            </nav>
+            </section>
+        </div>
+        <div class="flex-column nav" id="nav-right">
+        
+        <section class="sidebar top">
+        
+        <nav class="side contains-menu">
+        
+        <h3>Virtual Guide</h3>
+
+        <ul class="u1">
+        <li class="guide-only start"><a href="/de/">Start</a></li>
+        <li class="collapsible-button-after first"><!-- first wg. separierender Linien ab 25.12.2013 -->
+            <a href="/de/rechnertechnik/elektro-mechanik.php">Computer History</a>
+            <ul class="u2">
+                <li><a href="/de/rechnertechnik/elektro-mechanik.php" id="sidebar_link_elektro-mechanik">Mechanische Rechenmaschinen</a>
+                    
+                </li>
+                <li><a href="/de/rechnertechnik/lochkarten-edv.php" id="sidebar_link_lochkarten">Lochkartengeräte und Peripherie</a>
+                    <ul class="u3">
+                        <li><a href="/de/rechnertechnik/lochkarten-edv.php#Lochkartenstanzer">Stanzer</a></li>
+                        <li><a href="/de/rechnertechnik/lochkarten-edv.php#Sortiermaschinen">Sortiermaschinen</a></li>
+                        <li><a href="/de/rechnertechnik/lochkarten-edv.php#doppler">Doppler</a></li>
+                        <li><a href="/de/rechnertechnik/lochkarten-edv.php#Lochkartenmischer">Mischer</a></li>
+                        <li><a href="/de/rechnertechnik/lochkarten-edv.php#548">Übersetzer</a></li>
+                        <li><a href="/de/rechnertechnik/lochkarten-edv.php#ANELEX_Schnelldrucker">Schnelldrucker</a></li>
+                        <li><a href="/de/rechnertechnik/tabelliermaschine.php" title="BULL Tabelliermaschine" id="sidebar_link_tabelliermaschine">Tabelliermaschine</a></li>
+                    </ul>
+                    
+                </li>
+
+                <li><a href="/de/rechnertechnik/gamma3.php">Rechner mit Elektronenröhren</a>
+                    <ul class="u3">
+
+                <li><a href="/de/rechnertechnik/gamma3.php" title="Röhrenrechner der 1. Generation: BULL Gamma 3" id="sidebar_link_gamma3">BULL Gamma 3</a></li>
+                <li><a href="/de/rechnertechnik/lgp30.php" title="Röhrenrechner der 1. Generation: LGP 30" id="sidebar_link_lgp30">LGP 30</a></li>
+                </ul>
+                </li>
+                
+                
+                <li><a href="/de/rechnertechnik/gamma10.php">Gross-Computer und Rechenzentren</a>
+                    <ul class="u3">
+                        
+                        <li><a href="/de/rechnertechnik/gamma10.php" title="EDV-Anlage der 2. Generation: BULL Gamma 10" id="sidebar_link_gamma10">BULL Gamma 10</a></li>
+                        <li><a href="/de/rechnertechnik/gamma55.php" title="Gamma 55 (GE 55)" id="sidebar_link_gamma55">BULL Gamma 55 (GE-55)</a></li>
+                        <li><a href="/de/rechnertechnik/ibm1130.php" title="IBM 1130" id="sidebar_link_ibm1130">IBM 1130</a>
+                            
+                        </li>
+                        <li><a href="/de/rechnertechnik/univac9200.php" title="Univac 9200, Univac 9300" id="sidebar_link_univac9200">Univac 9200/9300</a></li>
+                        <li><a href="/de/rechnertechnik/univac9400.php" title="UNIVAC 9400 Großrechner, Rechenzentrum" id="sidebar_link_univac9400">Univac 9400</a>
+                            
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="/de/rechnertechnik/kommerzielle.php" title="Frühe kommerzielle Rechner" id="sidebar_link_kommerzielle">Kommerzielle Rechner</a>
+                    <ul class="u3">
+                        <li><a href="/de/rechnertechnik/kommerzielle.php#olivetti-p203">Olivetti P203</a></li>
+                        <li><a href="/de/rechnertechnik/kommerzielle.php#ncr446">NCR 446</a></li>
+                        <li><a href="/de/rechnertechnik/kommerzielle.php#nixdorf820">Nixdorf 820</a></li>
+                    </ul>
+                    
+                </li>
+                <li><a href="/de/rechnertechnik/fruehe-computer.php" title="Wissenschaftliche Rechner und Minicomputer" id="sidebar_link_fruehe-computer">Wissenschaftliche Rechner</a>
+                    <ul class="u3">
+                        <li><a href="/de/rechnertechnik/lgp21.php" id="sidebar_link_lgp21">LGP 21</a></li>
+                        <li><a href="/de/rechnertechnik/fruehe-computer.php#pdp8">PDP 8</a></li>
+                        <li><a href="/de/rechnertechnik/fruehe-computer.php#pdp8i">PDP 8i</a></li>
+                        <li><a href="/de/rechnertechnik/fruehe-computer.php#pdp8l">PDP 8L</a></li>
+                        <li><a href="/de/rechnertechnik/fruehe-computer.php#pdp12">PDP 12</a></li>
+                        <li><a href="/de/rechnertechnik/fruehe-computer.php#lab8e">LAB 8e</a></li>
+                        <li><a href="/de/rechnertechnik/fruehe-computer.php#nova">NOVA 2</a></li>
+                    </ul>
+                    
+                </li>
+                <li><a href="/de/rechnertechnik/elektronenroehren.php" title="Tischrechner mit Elektronenröhren">Elektronische Tischrechner</a>
+                    <ul class="u3">
+                        <li><a href="/de/rechnertechnik/elektronenroehren.php" title="Tischrechner mit Röhren" id="sidebar_link_elektronenroehren">mit Röhren</a></li>
+                        <li><a href="/de/rechnertechnik/transistoren.php" title="Rechner der 2. Generation mit Transistoren" id="sidebar_link_transistoren">mit Transistoren</a>
+                            
+                        </li>
+                        <li><a href="/de/rechnertechnik/programmierbare.php" title="Programmierbare Rechner der 2. Generation" id="sidebar_link_programmierbare">programmierbare Rechner</a>
+                            
+                        </li>
+                        <li><a href="/de/rechnertechnik/ic-technik.php" title="Programmierbare Rechner der 3. Generation mit einfacher IC-Technik" id="sidebar_link_ic-technik">Rechner mit IC´s</a>
+                            
+                        </li>
+                    </ul>
+                    
+                </li>
+                <li><a href="/de/rechnertechnik/personalcomputer.php" title="Historische Personalcomputer: Die ersten PCs" id="sidebar_link_personalcomputer">Historische Personalcomputer</a>
+                    <ul class="u3">
+                        <li><a href="/de/rechnertechnik/personalcomputer.php#wang2200" title="WANG 2200, mit umfangreicher Peripherie">WANG 2200B</a></li>
+                        <li><a href="/de/rechnertechnik/personalcomputer.php#wang2200s">WANG 2200S</a></li>
+                    </ul>
+                    
+                </li>
+                <li><a href="/de/rechnertechnik/analogrechner.php" id="sidebar_link_analogrechner">Analog u. Hybridrechner</a>
+                    <ul class="u3">
+                        <li><a href="/de/rechnertechnik/analogrechner.php#heathkit-h1">Heathkit H1</a></li>
+                        <li><a href="/de/rechnertechnik/analogrechner.php#heathkit-ec1">Heathkit EC1</a></li>
+                        <li><a href="/de/rechnertechnik/analogrechner.php#rat700">Telefunken RAT 700</a></li>
+                        <li><a href="/de/rechnertechnik/analogrechner.php#gte-ea22">GTE-EA 22</a></li>
+                        <li><a href="/de/rechnertechnik/analogrechner.php#eai180">EAI 180, 185</a></li>
+                        <li><a href="/de/rechnertechnik/analogrechner.php#do240">DO 240</a></li>
+                    </ul>
+                </li>
+                <li><a href="/de/rechnertechnik/speichermedien.php" id="sidebar_link_speichermedien">Speichermedien</a>
+                    <ul class="u3">
+                        <li><a href="/de/rechnertechnik/speichermedien.php#laufzeitspeicher">Verzögerungsspeicher</a></li>
+                        <li><a href="/de/rechnertechnik/speichermedien.php#magnetostriktion">Magnetostriktion</a></li>
+                        <li><a href="/de/rechnertechnik/speichermedien.php#kernspeicher">Kernspeicher</a></li>
+                        <li><a href="/de/rechnertechnik/speichermedien.php#threaded-rom">Gefädeltes ROM</a></li>
+                        <li><a href="/de/rechnertechnik/speichermedien.php#staebchenspeicher">Stäbchenspeicher</a></li>
+                        <li><a href="/de/rechnertechnik/speichermedien.php#magnetdrahtspeicher">Magnetdrahtspeicher</a></li>
+                        <li><a href="/de/rechnertechnik/speichermedien.php#lochband">Lochband</a></li>
+                    </ul>
+                    
+                </li>
+            </ul>
+        </li>
+        <li><a href="/de/kommunikationstechnik/rundfunk.php">Kommunikations-technik</a>
+            <ul class="u2">
+                <li><a href="/de/kommunikationstechnik/rundfunk.php" id="sidebar_link_rundfunk">Rundfunk</a>
+                    
+                </li>
+                <li><a href="/de/kommunikationstechnik/tontechnik.php" id="sidebar_link_tontechnik">Tontechnik</a>
+                    
+                </li>
+                <li><a href="/de/kommunikationstechnik/fernsehen.php" id="sidebar_link_fernsehen">Fernsehen</a>
+                    
+                </li>
+                <li><a href="/de/kommunikationstechnik/faxtechnik.php" id="sidebar_link_faxtechnik">Telegraphie und Faksimile</a>
+                    
+                </li>
+            </ul>
+        </li>
+        <li><a href="/de/kommunikationstechnik/messtechnik.php">Weitere Themen</a>
+            <ul class="u2">
+                <li><a href="/de/kommunikationstechnik/messtechnik.php" id="sidebar_link_messtechnik">Mess- und Experimentaltechnik</a></li>
+                <li><a href="/de/sonstiges.php" id="sidebar_link_sonstiges">Pianola, Musik und Kunst</a>
+                    
+                </li>
+                
+                <li><a href="/de/lernprojekte/" id="sidebar_link_lernprojekte">Lernprojekte</a>
+                    <ul class="u3">
+                        <li><a href="/de/lernprojekte/#aes">Fax ↔ Computer</a></li>
+                        <li><a href="/de/lernprojekte/#demo">Lerncomputer</a></li>
+                        <li><a href="/de/geraete/pianola-funktionserklaerung/">Pianola</a></li>
+                        <li><a href="/de/lernprojekte/schach/">Schach</a></li>
+                    </ul>
+                </li>
+                <li><a href="/de/entwicklungsprojekte.php" id="sidebar_link_entwicklungsprojekte">Hardware-Entwicklung</a>
+                    <ul class="u3">
+                        <li><a href="/de/entwicklungsprojekte.php#papertape">Lochstreifen ↔ Computer</a></li>
+                        <li><a href="/de/entwicklungsprojekte.php#punchcard">Lochkarten ↔ Computer</a></li>
+                        <li><a href="/de/entwicklungsprojekte.php#anelex">Anelex-Drucker</a></li>
+                    </ul>
+                </li>
+                
+
+                <li><a href="/de/lehrerinfo.php" id="sidebar_link_lehrerinfo">Museumsdidaktik</a>
+                    <ul class="u3">
+                        <li><a href="/de/lehrerinfo.php#Lehrerinfo">Information für Lehrer</a></li>
+                        <li><a href="/de/lehrerinfo.php#experimente">Experimente</a></li>
+                        <li><a class="kursseite" href="/robotik/" id="sidebar_link_robotik">Roboter-Kurse</a></li>
+                        <!--<li><a href="/physical-computing/" seiten_id="physical-computing">Physical Computing &amp; Robotics</a></li>-->
+                    </ul>
+                </li>
+            
+            </ul>
+        </li>
+
+        <li class="guide-only end"><a href="/de/impressum.php">Ende</a></li>
+        </ul>	
+        
+        </nav>
+        
+        </section>        
+        
+        </div><!-- /column -->
+    </div><!-- /row -->
+
+
+    
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+  integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+  crossorigin="anonymous"></script>
+<script src="skin/js/t29v7.js"></script>
+
+</body>
+</html>
