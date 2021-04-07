@@ -2,9 +2,9 @@
 
 header 
 	position: relative
-	border-bottom: 1px solid #5d5c58
+	//border-bottom: 1px solid #5d5c58
 	
-	@media all and (min-width: $max-width-mobile) 
+	@media all and (min-width: $must-be-singlecolumn) 
 		height: 107px
 
 	width: 100%
@@ -19,7 +19,10 @@ h1
 	display: inline 
 	a 
 		display: block
-		position: absolute
+		@media all and (min-width: $must-be-singlecolumn)
+			position: absolute
+		@media all and (max-width: $must-be-singlecolumn)
+			float: left
 		top: 10px 
 		left: 10px 
 		z-index: 2
@@ -32,7 +35,7 @@ h1
 		width: $logo-width
 		height: $logo-height
 		
-		@media all and (max-width: $max-width-mobile) 
+		@media all and (max-width: $must-be-singlecolumn) 
 			background-size: cover
 			background-repeat: no-repeat
 			width: 150px
@@ -67,12 +70,14 @@ header
 		margin-bottom: 3px
 		font-size: 17px
 
-		
-nav.horizontal 
-	position: absolute
-	right: 0
-	bottom: 0
-	margin-right: 2em
+	nav.horizontal 
+		@media all and (min-width: $must-be-singlecolumn)
+			position: absolute
+			right: 0
+			bottom: 0
+			margin-right: 2em
+		@media all and (max-width: $must-be-singlecolumn)
+			clear: both
 
 /* Farben */
 nav.horizontal a, nav.top li.active a, nav.side a 
@@ -84,7 +89,7 @@ nav.horizontal a, nav.top li.active a, nav.side a
 
 /* header "top auxilliary" navigation */
 
-@media all and (min-width: $max-width-mobile) 
+@media all and (min-width: $must-be-singlecolumn) 
 	/* Topnavigation (Nebenheadernavigation) */
 	nav.top
 		position: absolute
@@ -150,7 +155,7 @@ nav.top li.active a
 
 
 // Aufklapp-Menüs fuer Topnavigation
-@media all and (max-width: $max-width-mobile)
+@media all and (max-width: $must-be-singlecolumn)
 	nav.top
 		padding: 1em 0 1em
 
@@ -186,6 +191,6 @@ nav.top li.active a
 		background: no-repeat center url(https://de.wikipedia.org/w/skins/Vector/resources/skins.vector.styles/images/search.svg)
 		opacity: .5
 
-@media all and (min-width: $max-width-mobile) 
+@media all and (min-width: $must-be-singlecolumn) 
 	nav.top > ul > li > a
 		display: none // Behelfstexte
