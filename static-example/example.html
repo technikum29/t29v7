@@ -3,7 +3,18 @@
 <head>
   <meta charset="utf-8">
   <title>technikum29 v7 prototype test</title> 
-  <link rel="stylesheet" href="skin/build.css/t29v7.css" type="text/css">
+  
+  <link rel="stylesheet/less" href="../resources/t29v7.less" type="text/css">
+  <script src="less.min.js"></script> <!-- must be local due to CORS -->
+  
+  <!-- if you encounter CORS problems when opening in file:// mode, try serving
+  from localhost for instance with
+  
+     cd .. # to include also resources/ in the doctree 
+     python -m http.server 8080
+
+  -->
+  
   <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 
@@ -283,7 +294,7 @@
   src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
   integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
   crossorigin="anonymous"></script>
-<script src="skin/js/t29v7.js"></script>
+<script src="../resources/js/t29v7.js"></script> <!-- TO BE DONE -->
 
 </body>
 </html>

@@ -1,0 +1,94 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #d0d8dd url("https://technikum29.de/shared/img-v6/bg2017-06-26.body.svg") repeat-x;
+}
+
+body, input {
+    font-family: "Tahoma", "Trebuchet MS", 'Nunito', Verdana, Helvetica, Arial, sans-serif;
+}
+
+#sheet {
+    margin: 16px auto;
+    background-color: @sheet-color; /* Hintergrundfarbe des Textes ("Blatt") */
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5);
+}
+
+.flex-row {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+// Large screen: 3 column layout
+@media all and (min-width: @sheet-3col-width) {
+    #sheet {
+        max-width: @sheet-3col-width;
+    }
+    .flex-row {
+        flex-flow: row;
+    }
+    .flex-column {
+        flex: 1 100%;
+    }
+    .flex-column.nav {
+        flex: 1 0%;
+    }
+    #nav-left {
+        order: 1;
+    }
+    #main-text {
+        order: 2;
+    }
+    #nav-right {
+        order: 3;
+    }
+}
+
+// Med screen: 2 column layout
+@media all and (min-width: @sheet-2col-width) and (max-width: @sheet-3col-width) {
+    #sheet {
+        width: @sheet-2col-width;
+    }
+    #main-text {
+        order: 1;
+        width: @main-width;
+    }
+    #nav-right {
+        order: 2;
+    }
+    #nav-left {
+        order: 3;
+        flex: 1 0%;
+    }
+}
+
+// Small screen: 1 column layout
+@media all and (max-width: @sheet-2col-width) {
+    #sheet {
+        max-width: @sheet-1col-width;
+    }
+}
+
+// Super small screen: Sheet vanishes
+@media all and (max-width: @sheet-1col-width) {
+    #sheet {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+.main {
+    padding: 2em;
+}
+
+.nav {
+    background-color: #dfeaf0;
+}
+
+#main-text {
+    padding: 60px 40px 60px;
+    /* width should be around 860px */
+}
