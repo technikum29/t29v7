@@ -26,7 +26,8 @@ nav.side > ul > li > a {  /* .u1 */
     border-top: 2px solid rgba(173, 148, 125, 0.8); /*#A07F60*/ 
 }
 
-nav.side > ul > li.first > a { /* .u1 */
+nav.side > ul > li.first > a,
+nav.side > ul > li:first-child > a { /* .u1 */
     border-top: none; /* Nicht ueber erstem Eintrag (Computer History) */ 
 }
 
@@ -55,7 +56,9 @@ nav.side > ul > li > ul > li > ul { /* .u3 */
     display: none;
 }
 
-nav.side .u2 > li.active .u3 { /* .u3 */
+nav.side > ul > li > ul > li.active ul,    /* .u3 */
+nav.side > ul > li > ul > li:focus-within > ul,
+nav.side > ul > li > ul > li > a:focus + ul {
     display: block;
 }
 

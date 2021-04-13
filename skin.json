@@ -2,7 +2,7 @@
 	"name": "t29v7",
 	"author": [
 		"Sven Koeppel",
-		"Intar Bangwi (t29v6)",
+		"Intar Bangwi (t29v6)"
 	],
 	"url": "https://www.technikum29.de/",
 	"descriptionmsg": "t29v7skin-desc",
@@ -13,17 +13,18 @@
 		"MediaWiki": ">= 1.29.0"
 	},
 	"ValidSkinNames": {
-		"t29v7": "t29v7-Skin"
+		"t29v7": "T29v7"
 	},
 	"SkinOOUIThemes": {
-		"t29v7": "t29v7-Skin"
+		"t29v7": "Apex"
 	},
 	"DefaultUserOptions": {
 		"t29v7-responsive": true
 	},
 	"Hooks": {
 		"GetPreferences": "SkinT29v7::onGetPreferences",
-		"ResourceLoaderRegisterModules": "SkinT29v7::registerMobileExtensionStyles"
+		"ResourceLoaderRegisterModules": "SkinT29v7::registerMobileExtensionStyles",
+		"OutputPageBodyAttributes": "SkinT29v7::onOutputPageBodyAttributes"
 	},
 	"MessagesDirs": {
 		"t29v7": [
@@ -34,11 +35,12 @@
 		"skins.t29v7.styles": {
 			"class": "ResourceLoaderSkinModule",
 			"features": [ "elements", "content", "interface", "logo", "legacy" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"styles": {
-				"resources/screen-common.less": {
-					"media": "screen"
-				},
-				"resources/screen-desktop.css": {
+				"resources/t29v7.less": {
 					"media": "screen"
 				}
 			}
@@ -57,32 +59,10 @@
 				"mobile"
 			],
 			"styles": {
-				"resources/screen-common.less": {
+				"resources/t29v7.less": {
 					"media": "screen"
-				},
-				"resources/screen-desktop.css": {
-					"media": "screen and (min-width: 551px)"
-				},
-				"resources/screen-mobile.less": {
-					"media": "screen and (max-width: 550px)"
 				}
 			}
-		},
-		"skins.t29v7.mobile": {
-			"class": "ResourceLoaderSkinModule",
-			"features": [ "elements", "content", "interface", "logo", "legacy" ],
-			"targets": [ "desktop", "mobile" ],
-			"scripts": [
-				"resources/mobile.js"
-			],
-			"styles": {
-				"resources/mobile.js.less": {
-					"media": "screen and (max-width: 550px)"
-				}
-			},
-			"dependencies": [
-				"mediawiki.util"
-			]
 		}
 	},
 	"ResourceFileModulePaths": {
@@ -100,7 +80,7 @@
 	},
 	"AutoloadClasses": {
 		"SkinT29v7": "includes/SkinT29v7.php",
-		"T29v7Template": "includes/T27v7Template.php"
+		"T29v7Template": "includes/T29v7Template.php"
 	},
 	"manifest_version": 2
 }

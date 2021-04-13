@@ -64,7 +64,7 @@ body.lang-en h1 a {
 header {
 	// The following is only for @media all and (max-width: @max-width-mobile) 
 	nav.horizontal ul  {
-		display: flex;
+		display: inline-flex;
 		flex-direction: row;
 		justify-content: space-around;
     }
@@ -89,11 +89,107 @@ header {
     }
 }
 
+/* Aufklappnavigation der Horizontalen Navi */
+nav.horizontal {
+    & > ul > li > ul { /* .u2 */
+        display: none;
+    }
+    & > ul > li:hover > ul,
+    & > ul > li.dev-force-open > ul {  
+        display: block;
+    }
+}
+
+/* devel: Menu statisch anzeigen */
+/*nav.horizontal li.current.active .u2 { display: block; }*/
+
+nav.horizontal li.active a,
+nav.horizontal li.selected a {
+	/*color: #6F2A41; *//* gedecktes bordot */
+	color: #E90015; /* knalliges Rot von rechter Navi */
+}
+
+nav.horizontal > ul > li > ul  { /* .u2 */
+	position: absolute;
+	z-index: 100; /* Ueber allem */
+	left: 0; /* top: 0; */
+	text-align: left;
+	width: 23em;
+	background-color: white;
+	border-bottom: 3px solid #888;
+	
+	a {
+        padding: .2em .9em;
+    }
+
+    a:hover {
+        background-color: #efefef;
+    }
+
+    nav.horizontal .u2 > li.has-submenu {
+        display: block;
+        margin: 1em 0;
+    }
+}
+
+nav.horizontal li.open-to-left .u2 { /* fixme */
+	left: inherit;
+	right: 0;
+}
+
+/* Fixme from here ... */
+
+nav.horizontal .u3 > li > a {
+	padding-left: 1.9em;
+	font-weight: normal;
+}
+
+nav.horizontal ul.rich-text a {
+	padding-top: .7em; padding-bottom: .7em;
+}
+
+nav.horizontal ul.rich-text a:after {
+	content: ".";
+	display: block;
+	clear: left;
+	height: 0; line-height: 0;
+	visibility: hidden;
+}
+
+nav.horizontal ul.rich-text img {
+	float: left;
+	margin-right: 10px;
+	/*display: none;*/ /* ausblenden */ /* warum ausblenden? */
+}
+
+nav.horizontal ul.rich-text a:hover img {
+	box-shadow: 0px 0px 4px #1a5160;
+	/*outline: 1px solid #1a5160;*/
+}
+
+nav.horizontal ul.rich-text a em {
+	display: block;
+	color: black;
+	text-transform: none;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 13px; /* like body */
+}
+
+nav.horizontal li.small-screen-only {
+	display: none;
+}
+
+/* fixme until here */
+
+
 /* Farben */
-nav.horizontal a, nav.top li.active a, nav.side a {
-    color: #1a5160;
-    /*font-weight: bold*/
-    opacity: .8;
+nav.horizontal a,
+nav.top li.active a,
+nav.side a {
+	color: #1a5160;
+	/*font-weight: bold;*/
+	opacity: .8;
 }
 
 /* header "top auxilliary" navigation */
@@ -200,7 +296,7 @@ nav.top li.active a {
     }
     
     #language-chooser {
-        background: no-repeat center url(../images/language-icon.header.svg);
+        background: no-repeat center url(images/language-icon.header.svg);
         background-size: contain;
         opacity: .5;
     }

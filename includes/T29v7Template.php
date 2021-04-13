@@ -12,7 +12,7 @@
 /**
  * @ingroup Skins
  */
-class MonoBookTemplate extends BaseTemplate {
+class T29v7Template extends BaseTemplate {
 
 	/**
 	 * Template filter callback for MonoBook skin.
@@ -21,27 +21,67 @@ class MonoBookTemplate extends BaseTemplate {
 	 * outputs a formatted page.
 	 */
 	public function execute() {
-		// Open html, body elements, etc
-		$html = $this->get( 'headelement' );
-		$html .= Html::openElement( 'div', [ 'id' => 'globalWrapper' ] );
-
-		$html .= Html::openElement( 'div', [ 'id' => 'column-content' ] );
-		$html .= Html::rawElement( 'div', [ 'id' => 'content', 'class' => 'mw-body',  'role' => 'main' ],
-			Html::element( 'a', [ 'id' => 'top' ] ) .
-			$this->getIfExists( 'sitenotice', [
+		echo  $this->get( 'headelement' );
+		?>
+<div id="sheet"><!-- sheet wrapper -->
+    <header>
+        <h1 role="banner"><a href="#" title="Zur technikum29 Startseite">technikum29</a></h1>
+		<nav class="top">
+            <ul>
+                <li><a href="<?php echo $this->data['nav_urls']['mainpage']['href']; ?>" class="dropdown" id="language-chooser">Sprachauswahl</a>
+                    <ul>
+                        <li class='active'><a href='/de/' title='Sie betrachten gerade die Seite &quot;Besuchen&quot; auf Deutsch'>Deutsch</a></li>
+                        <li><a href='/en/' title='Read the page &quot;Start&quot; in English'>English</a></li>
+                    </ul>
+                <li><a href="Make-Link-to-<?php echo $this->get( 'searchtitle' ); ?>" class="dropdown" id="search-link">Suche</a>
+                    <form method="get" action="<?php echo $this->get( 'wgScript' ); ?>" id="searchform">
+                        <input type="hidden" name="title" value="<?php echo  $this->get( 'searchtitle' ); ?>">
+                        <input type="search" value="" placeholder="Suchen" name="search" class="text" accesskey="f">
+                        <input type="submit" value="Suchen" name="go" class="button" title="Gehe direkt zu der Seite mit diesem Namen, falls vorhanden"">
+                    </form>
+                <li class="dropdown"><a href="#"><?php
+                    echo $this->getSkin()->getUser()->isLoggedIn() ? "Benutzer:".$this->getSkin()->getUser()->getName() : "Einloggen";
+                ?></a>
+                    <ul>
+                    <?php
+                        echo $this->getBox( 'personal', $this->getPersonalTools(), 'personaltools' );
+                    ?>
+                    </ul>
+            </ul>
+        </nav>
+		<nav class="horizontal">
+            <ul id="nav-primary-mobile">
+                <li><a href="#nav-left">Museum</a>
+                <li><a href="#nav-right">Ausstellung</a>
+                <li><a href="#nav-wiki-side">Wiki</a>
+            </ul>
+            <ul id="nav-horizontal-pageactions">   
+                <?php echo $this->getCactions(); ?>
+            </ul>
+        </nav>
+    </header>
+    <div class="flex-row">
+        <div class="flex-column main" id="main-text">
+		<!-- start content -->
+		
+		<!--<pre><?php print_r($this->getPersonalTools()); ?></pre>-->
+		
+        <?php
+        	echo $this->getIfExists( 'sitenotice', [
 				'wrapper' => 'div',
 				'parameters' => [ 'id' => 'siteNotice', 'class' => 'mw-body-content' ]
 			] ) .
 			$this->getIndicators() .
 			$this->getIfExists( 'title', [
 				'loose' => true,
-				'wrapper' => 'h1',
+				'wrapper' => 'h2',
 				'parameters' => [
 					'id' => 'firstHeading',
 					'class' => 'firstHeading',
 					'lang' => $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode()
 				]
 			] ) .
+
 			Html::rawElement( 'div', [ 'id' => 'bodyContent', 'class' => 'mw-body-content' ],
 				Html::rawElement( 'div', [ 'id' => 'siteSub' ], $this->getMsg( 'tagline' )->parse() ) .
 				Html::rawElement(
@@ -55,71 +95,65 @@ class MonoBookTemplate extends BaseTemplate {
 				$this->getIfExists( 'newtalk', [ 'wrapper' => 'div', 'parameters' => [
 					'class' => 'usermessage'
 				] ] ) .
-				Html::element( 'div', [ 'id' => 'jump-to-nav' ] ) .
+				/*Html::element( 'div', [ 'id' => 'jump-to-nav' ] ) .
 				Html::element( 'a', [ 'href' => '#column-one', 'class' => 'mw-jump-link' ],
 					$this->getMsg( 'monobook-jumptonavigation' )->text()
 				) .
 				Html::element( 'a', [ 'href' => '#searchInput', 'class' => 'mw-jump-link' ],
 					$this->getMsg( 'monobook-jumptosearch' )->text()
 				) .
-				'<!-- start content -->' .
-
+				*/
+				'<!-- start of bodytext -->' .
 				$this->get( 'bodytext' ) .
+				'<!-- end of bodytext -->' .
 				$this->getIfExists( 'catlinks' ) .
-
-				'<!-- end content -->' .
 				$this->getClear()
-			)
-		);
-		$html .= $this->deprecatedHookHack( 'MonoBookAfterContent' );
-		$html .= $this->getIfExists( 'dataAfterContent' ) . $this->getClear();
-		$html .= Html::closeElement( 'div' );
+			);
+			
+            echo $this->getIfExists( 'dataAfterContent');			
+        ?>
 
-		$html .= Html::rawElement( 'div',
-			[
-				'id' => 'column-one',
-				'lang' => $this->get( 'userlang' ),
-				'dir' => $this->get( 'dir' )
-			],
-			Html::element( 'h2', [], $this->getMsg( 'navigation-heading' )->text() ) .
-			$this->getCactions() .
-			$this->getBox( 'personal', $this->getPersonalTools(), 'personaltools' ) .
-			Html::rawElement( 'div', [ 'class' => 'portlet', 'id' => 'p-logo', 'role' => 'banner' ],
-				Html::element( 'a',
-					[
-						'href' => $this->data['nav_urls']['mainpage']['href'],
-						'class' => 'mw-wiki-logo',
-					]
-					+ Linker::tooltipAndAccesskeyAttribs( 'p-logo' )
-				)
-			) .
-			Html::rawElement( 'div', [ 'id' => 'sidebar' ], $this->getRenderedSidebar() ) .
-			$this->getMobileNavigationIcon(
-				'sidebar',
-				$this->getMsg( 'jumptonavigation' )->text()
-			) .
-			$this->getMobileNavigationIcon(
-				'p-personal',
-				$this->getMsg( 'monobook-jumptopersonal' )->text()
-			) .
-			$this->getMobileNavigationIcon(
-				'globalWrapper',
-				$this->getMsg( 'monobook-jumptotop' )->text()
-			)
-		);
-		$html .= '<!-- end of the left (by default at least) column -->';
-
-		$html .= $this->getClear();
-		$html .= $this->getSimpleFooter();
-		$html .= Html::closeElement( 'div' );
-
-		$html .= $this->getTrail();
-
-		$html .= Html::closeElement( 'body' );
-		$html .= Html::closeElement( 'html' );
-
-		// The unholy echo
-		echo $html;
+        <!-- end content -->
+        </div><!--/ main -->
+        <div class="flex-column nav" id="nav-left">
+            <section class="sidebar top">
+            <h3 class="hidden">Hauptnavigation</h3>
+            
+            <nav class="side contains-menu">
+            <?php 
+            
+            $html = $this->getMsg("Hauptnavigation")->parse();
+            
+            echo str_replace(["PAGEACTIONS", "TOOLBOX"], [
+                "<a href='#' onclick='return false'>Seitenaktionen</a><ul>".$this->getCactions()."</ul>",
+                "<a href='#' onclick='return false'>Werkzeuge</a><ul>".$this->getToolboxBox( $this->data['sidebar']['TOOLBOX'])."</ul>"
+            ], $html);
+            
+            ?>
+            
+            </nav>
+            </section>
+        </div>
+        <div class="flex-column nav" id="nav-right">
+        
+        <section class="sidebar top">
+        
+        <nav class="side contains-menu">
+            <h3 class="hidden">Virtual Guide</h3>
+            <?php echo $this->getMsg("VirtualGuide")->parse(); ?>
+        </nav>
+        
+        </section>        
+        </div><!-- /column -->
+    </div><!-- /row -->
+    
+    </div><!--/sheet -->
+    <footer class="attached"><?php $this->print_footer_text(); ?></footer>
+    <?php $this->printTrail(); ?>
+    </body>
+    </html>
+    <!-- Well, MediaWiki adds a lot of noice. -->
+    <?php
 	}
 
 	/**
@@ -160,7 +194,8 @@ class MonoBookTemplate extends BaseTemplate {
 				[ 'extra-classes' => 'nomobile' ]
 			);
 		}
-
+        
+        /*
 		// Mobile cactions tabs
 		$tabs = $this->data['content_navigation']['namespaces'];
 		foreach ( $tabs as $tab => $attribs ) {
@@ -194,6 +229,7 @@ class MonoBookTemplate extends BaseTemplate {
 		}
 
 		$html .= $this->getBox( 'cactions-mobile', $tabs, 'monobook-cactions-label' );
+		*/
 
 		return $html;
 	}
@@ -412,9 +448,11 @@ class MonoBookTemplate extends BaseTemplate {
 		$labelId = Sanitizer::escapeIdForAttribute( "p-$name-label" );
 
 		if ( is_array( $content ) ) {
-			$contentText = Html::openElement( 'ul',
-				[ 'lang' => $this->get( 'userlang' ), 'dir' => $this->get( 'dir' ) ]
-			);
+			//$contentText = Html::openElement( 'ul',
+			//	[ 'lang' => $this->get( 'userlang' ), 'dir' => $this->get( 'dir' ) ]
+			//);
+
+            $contentText = "";
 			$contentText .= $options['list-prepend'];
 			foreach ( $content as $key => $item ) {
 				if ( is_array( $options['text-wrapper'] ) ) {
@@ -430,11 +468,11 @@ class MonoBookTemplate extends BaseTemplate {
 					);
 				}
 			}
-			$contentText .= Html::closeElement( 'ul' );
+			//$contentText .= Html::closeElement( 'ul' );
 		} else {
 			$contentText = $content;
 		}
-
+        /*
 		// Special handling for role=search
 		$divOptions = [
 			'role' => $options['role'],
@@ -453,6 +491,7 @@ class MonoBookTemplate extends BaseTemplate {
 		if ( $options['role'] == 'search' ) {
 			$msgString = Html::rawElement( 'label', [ 'for' => $options['search-input-id'] ], $msgString );
 		}
+		*/
 
 		$bodyDivOptions = [
 			'class' => $this->mergeClasses( $options['body-class'], $options['body-extra-classes'] )
@@ -460,7 +499,10 @@ class MonoBookTemplate extends BaseTemplate {
 		if ( is_string( $options['body-id'] ) ) {
 			$bodyDivOptions['id'] = $options['body-id'];
 		}
+		
+		return $contentText;
 
+        /*
 		$html = Html::rawElement( 'div', $divOptions,
 			Html::rawElement( 'h3', $labelOptions, $msgString ) .
 			Html::rawElement( 'div', $bodyDivOptions,
@@ -468,8 +510,9 @@ class MonoBookTemplate extends BaseTemplate {
 				$this->getAfterPortlet( $name )
 			)
 		);
-
+		
 		return $html;
+		*/
 	}
 
 	/**
@@ -598,4 +641,37 @@ class MonoBookTemplate extends BaseTemplate {
 
 		return $html;
 	}
+	
+	/**
+	 * Den "Bigfooter"-Text ausgeben.
+	 * Hilfsfunktion fuer print_footer().
+	 * (Grund: Implementierung als langer String in print_footer() ist unbequem)
+	 **/
+	private function print_footer_text() {
+		# $title = Title::newFromText( 'Pagename' );
+        # echo $title->getLocalUrl();
+
+		?><div class="bigfooter">
+		    <ul class="clearfix">
+			<li class="haus"><a class="block" href="<?php print $this->msg('footer-haus-link'); ?>">
+				<img src="/w/skins/t29v7/resources/images/logo-haus.footer.png" alt="Museum Haus" title="The Museum building">
+				<span class="p"><?php print $this->getMsg('footer-haus-text')->plain(); ?></span>
+			</a></li>
+			<li class="copy"><a class="block" href="<?php print $this->msg('footer-legal-file'); ?>#image-copyright" class="clearfix">
+				<i>CC</i>
+				<span class="p"><?php print $this->getMsg('footer-image-copyright-text')->plain(); ?></span>
+			</a></li>
+			<li class="logo"><span class="block clearfix"><!-- FIXME: clearfix should be semantically performed -->
+				<i title="technikum29 Logo">Logo</i>
+				<span class="p">© 2003-<?php echo date("Y"); ?> technikum29.
+				<br><a class="u" href="<?php print $this->msg('footer-legal-file'); ?>"><?php $this->msg('footer-legal-link'); ?></a>
+				<br><a class="u" href="<?php print $this->msg('footer-sitemap-link'); ?>"><?php $this->msg('footer-sitemap-text'); ?></a>
+				<br><a class="u" href="<?php print $this->msg('footer-privacy-link'); ?>"><?php $this->msg('footer-privacy-text'); ?></a>
+				</span>
+			</span></li>
+
+		    </ul>
+		</div><?php
+	}
+	
 }

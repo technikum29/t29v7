@@ -15,6 +15,7 @@ body, input {
     margin: 16px auto;
     background-color: @sheet-color; /* Hintergrundfarbe des Textes ("Blatt") */
     box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5);
+    position: relative; /* fuer footer.attached */
 }
 
 .flex-row {
@@ -44,6 +45,10 @@ body, input {
     }
     #nav-right {
         order: 3;
+    }
+    
+    #nav-primary-mobile {
+        display: none;
     }
 }
 

@@ -13,7 +13,7 @@
  * Inherit main code from SkinTemplate, set the CSS and template filter.
  * @ingroup Skins
  */
-class SkinMonoBook extends SkinTemplate {
+class SkinT29v7 extends SkinTemplate {
 	public $skinname = 't29v7';
 	public $stylename = 'technikum29-v7';
 	public $template = 'T29v7Template';
@@ -23,14 +23,16 @@ class SkinMonoBook extends SkinTemplate {
 	 */
 	public function setupSkinUserCss( OutputPage $out ) {
 		parent::setupSkinUserCss( $out );
+		
+        $out->addMeta( 'viewport',
+            'width=device-width, initial-scale=1.0, ' .
+            'user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0'
+        );
+        $styleModule = 'skins.t29v7.styles';
 
-		if ( $out->getUser()->getOption( 't29v7-responsive' ) ) {
-			$out->addMeta( 'viewport',
-				'width=device-width, initial-scale=1.0, ' .
-				'user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0'
-			);
-			$styleModule = 'skins.t29v7.responsive';
-			$out->addModules( [
+		//if ( $out->getUser()->getOption( 't29v7-responsive' ) ) {
+			
+/*			$out->addModules( [
 				'skins.t29v7.mobile'
 			] );
 
@@ -43,13 +45,21 @@ class SkinMonoBook extends SkinTemplate {
 		} else {
 			$styleModule = 'skins.t29v7.styles';
 		}
+		*/
 
 		$out->addModuleStyles( [
 			'mediawiki.skinning.content.externallinks',
 			$styleModule
 		] );
 	}
-
+	
+    public static function onOutputPageBodyAttributes( OutputPage $out, Skin $skin, &$bodyAttrs ) {
+        // t29 skin requires some body.lang-de or body.lang-en.
+        // Mediawiki does the same with html[lang="de"] or html[lang="en"], but hey, we got a hook
+        // for this.
+        $bodyAttrs["class"] .= " lang-" . $skin->getTitle()->getPageViewLanguage()->getHtmlCode();
+    }
+    
 	/**
 	 * @param User $user
 	 * @param array &$preferences
