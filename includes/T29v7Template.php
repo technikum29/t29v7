@@ -62,10 +62,8 @@ class T29v7Template extends BaseTemplate {
     </header>
     <div class="flex-row">
         <div class="flex-column main" id="main-text">
-		<!-- start content -->
 		
-		<!--<pre><?php print_r($this->getPersonalTools()); ?></pre>-->
-		
+		<div id="content"><!-- start content -->
         <?php
         	echo $this->getIfExists( 'sitenotice', [
 				'wrapper' => 'div',
@@ -82,8 +80,8 @@ class T29v7Template extends BaseTemplate {
 				]
 			] ) .
 
-			Html::rawElement( 'div', [ 'id' => 'bodyContent', 'class' => 'mw-body-content' ],
-				Html::rawElement( 'div', [ 'id' => 'siteSub' ], $this->getMsg( 'tagline' )->parse() ) .
+			Html::rawElement( 'div', [ 'class' => 'mw-body-content' ],
+				#Html::rawElement( 'div', [ 'id' => 'siteSub' ], $this->getMsg( 'tagline' )->parse() ) .
 				Html::rawElement(
 					'div',
 					[ 'id' => 'contentSub', 'lang' => $this->get( 'userlang' ), 'dir' => $this->get( 'dir' ) ],
@@ -113,7 +111,7 @@ class T29v7Template extends BaseTemplate {
             echo $this->getIfExists( 'dataAfterContent');			
         ?>
 
-        <!-- end content -->
+        </div><!-- end content -->
         </div><!--/ main -->
         <div class="flex-column nav" id="nav-left">
             <section class="sidebar top">

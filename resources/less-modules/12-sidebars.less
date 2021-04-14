@@ -62,7 +62,7 @@ nav.side > ul > li > ul > li > a:focus + ul {
     display: block;
 }
 
-nav.side .u3 > li > a {
+nav.side ul ul ul > li > a { /* .u3  */
     font-size: 14px;
     margin: 0 -25px 0 -40px;
     padding: 1px 25px 1px 40px;
@@ -70,19 +70,19 @@ nav.side .u3 > li > a {
     /*text-transform: uppercase*/
 }
 
-nav.side .u3 > li.active > a,
-nav.side .u4 > li.active > a {
+nav.side ul ul ul > li.active > a, /* .u3 */
+nav.side ul ul ul ul > li.active > a { /* .u4 */
     color: #e90015;
     /*font-weight: bold*/
 }
 
 /* 4. Ebene, wird derzeit nicht aktiv verwendet (nur fuer .u4.geraete) */
-nav.side .u4 {
+nav.side ul ul ul ul { /* .u4 */
     margin-left: 8px;
     margin-bottom: 8px;
 }
 
-nav.side .u4 > li > a {
+nav.side ul ul ul ul  > li > a { /* .u4 */
     font-size: 12px;
     margin: 0 -32px 0 -48px;
     padding: 1px 32px 1px 48px;

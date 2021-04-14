@@ -34,7 +34,7 @@
 	"ResourceModules": {
 		"skins.t29v7.styles": {
 			"class": "ResourceLoaderSkinModule",
-			"features": [ "elements", "content", "interface", "logo", "legacy" ],
+			"features": [ "content", "interface", "legacy" ],
 			"targets": [
 				"desktop",
 				"mobile"
@@ -45,24 +45,28 @@
 				}
 			}
 		},
-		"skins.t29v7.responsive": {
-			"class": "ResourceLoaderSkinModule",
-			"features": [
-				"elements",
-				"content",
-				"interface",
-				"legacy",
-				"logo"
+		"skins.t29v7.js": {
+			"packageFiles": [
+				"resources/js/t29v7.js",
+				"resources/js/menu.js"
 			],
-			"targets": [
-				"desktop",
-				"mobile"
+			"messages": [
+                "js-heading-links",
+                "js-img-license",
+                "js-piwik-noscript-imgsrc",
+                "js-piwik-url-prefix",
+                "js-piwik-siteid",
+                "js-interlang-notify-heading",
+                "js-interlang-notify-text",
+                "js-menu-collapse-out",
+                "js-menu-collapse-in",
+                "js-menu-scroll-show",
+                "js-menu-scroll-hide"
 			],
-			"styles": {
-				"resources/t29v7.less": {
-					"media": "screen"
-				}
-			}
+			"dependencies": [
+				"mediawiki.util",
+				"mediawiki.page.ready"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {

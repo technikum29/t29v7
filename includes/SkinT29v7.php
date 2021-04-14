@@ -17,6 +17,27 @@ class SkinT29v7 extends SkinTemplate {
 	public $skinname = 't29v7';
 	public $stylename = 'technikum29-v7';
 	public $template = 'T29v7Template';
+	
+	public function getDefaultModules() {
+		$modules = parent::getDefaultModules();
+		$modules['styles'][] = 'skins.t29v7.styles';
+		$modules['T29v7'][] = 'skins.t29v7.js';
+		
+        /*
+		if ( $this->isLegacy() ) {
+			$modules['styles']['skin'][] = 'skins.vector.styles.legacy';
+			$modules[Constants::SKIN_NAME] = 'skins.vector.legacy.js';
+		} else {
+			$modules['styles'] = array_merge(
+				$modules['styles'],
+				[ 'skins.vector.styles', 'mediawiki.ui.icon', 'skins.vector.icons' ]
+			);
+			$modules[Constants::SKIN_NAME][] = 'skins.vector.js';
+		}
+		*/
+
+		return $modules;
+	}
 
 	/**
 	 * @param OutputPage $out
@@ -28,7 +49,6 @@ class SkinT29v7 extends SkinTemplate {
             'width=device-width, initial-scale=1.0, ' .
             'user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0'
         );
-        $styleModule = 'skins.t29v7.styles';
 
 		//if ( $out->getUser()->getOption( 't29v7-responsive' ) ) {
 			
@@ -49,7 +69,8 @@ class SkinT29v7 extends SkinTemplate {
 
 		$out->addModuleStyles( [
 			'mediawiki.skinning.content.externallinks',
-			$styleModule
+			#'skins.t29v7.styles',
+			#'skins.t29v7.js'
 		] );
 	}
 	
