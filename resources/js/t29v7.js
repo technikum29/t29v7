@@ -5,10 +5,14 @@
  * for itself at the end.
  */
 
-var menu = require("./menu.js");
+var menu = require("./menu.js"),
+    auto_bildbreite = require("./auto_bildbreite.js"),
+    img_license = require("./img_license.js");
 
 $(function() {
     console.log("t29v7 ist geladen");
     
-    menu.menu.setup();
+    menu.setup();
+    auto_bildbreite.setup();
+    img_license.setup();
 });

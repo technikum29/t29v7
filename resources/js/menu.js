@@ -419,4 +419,4 @@ menu.guide.setup = function() {
 };
 
 
-module.exports = { menu: menu };
+module.exports = menu; //{ menu: menu };

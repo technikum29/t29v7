@@ -48,7 +48,9 @@
 		"skins.t29v7.js": {
 			"packageFiles": [
 				"resources/js/t29v7.js",
-				"resources/js/menu.js"
+				"resources/js/menu.js",
+				"resources/js/auto_bildbreite.js",
+				"resources/js/img_license.js"
 			],
 			"messages": [
                 "js-heading-links",
