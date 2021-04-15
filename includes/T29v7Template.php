@@ -28,19 +28,19 @@ class T29v7Template extends BaseTemplate {
         <h1 role="banner"><a href="#" title="Zur technikum29 Startseite">technikum29</a></h1>
 		<nav class="top">
             <ul>
-                <li><a href="<?php echo $this->data['nav_urls']['mainpage']['href']; ?>" class="dropdown" id="language-chooser">Sprachauswahl</a>
+                <li id="language-chooser"><a href="<?php echo $this->data['nav_urls']['mainpage']['href']; ?>" class="dropdown">Sprachauswahl</a>
                     <ul>
                         <li class='active'><a href='/de/' title='Sie betrachten gerade die Seite &quot;Besuchen&quot; auf Deutsch'>Deutsch</a></li>
                         <li><a href='/en/' title='Read the page &quot;Start&quot; in English'>English</a></li>
                     </ul>
-                <li><a href="Make-Link-to-<?php echo $this->get( 'searchtitle' ); ?>" class="dropdown" id="search-link">Suche</a>
+                <li id="search-link"><a href="Make-Link-to-<?php echo $this->get( 'searchtitle' ); ?>" class="dropdown">Suche</a>
                     <form method="get" action="<?php echo $this->get( 'wgScript' ); ?>" id="searchform">
                         <input type="hidden" name="title" value="<?php echo  $this->get( 'searchtitle' ); ?>">
                         <input type="search" value="" placeholder="Suchen" name="search" class="text" accesskey="f">
                         <input type="submit" value="Suchen" name="go" class="button" title="Gehe direkt zu der Seite mit diesem Namen, falls vorhanden"">
                     </form>
-                <li class="dropdown"><a href="#"><?php
-                    echo $this->getSkin()->getUser()->isLoggedIn() ? "Benutzer:".$this->getSkin()->getUser()->getName() : "Einloggen";
+                <li id="user-menu" ><a class="dropdown" href="link-to-login-or-userpage"><?php
+                    echo $this->getSkin()->getUser()->isLoggedIn() ? $this->getSkin()->getUser()->getName() : "Einloggen";
                 ?></a>
                     <ul>
                     <?php

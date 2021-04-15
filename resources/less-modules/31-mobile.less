@@ -2,6 +2,10 @@
  * Media Queries for responsive webdesign
  * Fuer kleine Browserfenster sowie mobile Endgeraete.
  **/
+ 
+/*   TRANSITION: Viel hiervon geht seit t29v7 direkt in 10-window et al, weil "mobile-first".
+                 Damit wird 31-mobile langfristig nur noch #content abdecken und
+                 auch da direkt in die anderen Files reingehen (per LESS mit @variablen) */
 
 /**
  * Schmaler als die "Blattmetapher" 1200px: Blattmetapher aufgeben und Ueberbleibsel
@@ -53,79 +57,7 @@
 	}
 }
 
-/**
- * Schmaler als 940px: Tablet-Design. Menue unten darstellen, keine Menuescrollfunktionen,
- * Menuepunkte nebeneinander (sieht huebsch aus).
- *
- **/
-@media all and (max-width: 940px) {
-	/* menue unten darstellen, Menuescrollfunktionen deaktivieren */
-	#container {
-		width: 940px;
-	}
 
-	/* Header-Navigation */
-	header.banner {
-		height: auto;
-		background: none;
-		text-align: left;
-	}
-
-	nav.horizontal {
-		position: relative;
-		top: auto; bottom: auto;
-		margin: 105px 0 0 0;
-		text-align: center;
-
-		/* testweise: */
-		background-color: #f1f1f1;
-		border-bottom: 2px solid #d2d2d2;
-		border-top: 2px solid #d2d2d2;
-	}
-	nav.horizontal .u1 > li > a {
-		margin-bottom: 0; /* kein Abstand zu nav.horizontal */
-		padding: 9px; /* groessere Klickflaechen */
-	}
-
-	li.small-screen-only {
-		display: inline-block !important;
-	}
-	
-	#background-color-container, #content, section.sidebar {
-		float: none;
-		left: auto;
-		background-color: transparent;
-	}
-
-	section.sidebar {
-		width: 100%;
-		background-color: #dfeaf0;
-	}
-	section.sidebar nav.side .u1 > li > a {
-		/* u1-Trenner abschalten */
-		border-top: none;
-		padding-top: 0;
-	}
-	
-	/* clearfix */
-	#content:after, section.sidebar:after { content: ""; display: table; clear: both; }
-	
-	nav.side { /* Quick and dirty */
-		padding-bottom: 15px !important;
-	}
-	
-	.button { display: none !important; } /* Quick and dirty */
-	
-	/* Spalten */
-	section.sidebar ul.u1 > li {
-		float: left;
-		padding: 24px;
-		width: 250px;
-	}
-	
-	/* ist nicht mehr empty wg bigfooter */
-	/* footer.in-sheet.empty-footer { display: none; } */
-}
 
 /**
  * Schmaller als 600px: Handy-Design, alles einspaltig!
@@ -157,20 +89,6 @@
 		background-position: center center;
 		background-size: 100% auto;
 		margin: 0 auto;
-	}
-
-	nav.horizontal {
-		/* Less distance to logo */
-		margin: 90px 0 0 0;
-		border-bottom: none;
-	}
-
-	nav.top {
-		position: relative;
-		margin: 0; padding: .5em 0;
-		border-bottom: 2px solid #d2d2d2;
-		background-color: #ebebeb;
-		text-align: center;
 	}
 
 	nav.rel {

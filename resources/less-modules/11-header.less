@@ -193,122 +193,144 @@ nav.side a {
 }
 
 /* header "top auxilliary" navigation */
-@media all and (min-width: 440px) {
-	/* Topnavigation (Nebenheadernavigation) */
-	nav.top {
+/* Topnavigation (Nebenheadernavigation) */
+nav.top {
+    @media all and (min-width: 440px) {
+        & {
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin: 1em;
+            margin-right: 2em; 
+        }
+    }
+
+    &, input, a {
+        /*font: 15px "Futura Std Medium"*/
+        font-size: 17px;
+        /*text-transform: uppercase*/
+        color: #757575;
+        /*font-weight: bold*/
+    }
+
+    form, ul {
+        display: inline-block;
+        position: relative;
+    }
+
+    input.text, input.text.defaultvalue {
+        border: 1px solid transparent;
+        background: transparent;
+        //width: 4em 
+        //text-align: right
+        //padding-right: 22px
+        border: 2px solid #d8d8d8;
+        width: 10em;
+        padding-left: .3em;
+    }
+
+    input.text:focus, input.text.no-defaultvalue {
+        background-color: white;
+        text-transform: none;
+        color: #000;
+        //	text-align: left
+        //	width: 8em
+        //	border: 1px solid #bababa
+    }
+
+    input.button {
+        display: block;
+        text-indent: -999px;
+        border: none;
+        background: no-repeat center url(https://de.wikipedia.org/w/skins/Vector/resources/skins.vector.styles/images/search.svg);
+        width: 2.2em;
         position: absolute;
-        right: 0;
-        top: 0;
-        margin: 1em;
-        margin-right: 2em; 
-    }
-}
-
-nav.top, nav.top input, nav.top a {
-    /*font: 15px "Futura Std Medium"*/
-    font-size: 17px;
-    /*text-transform: uppercase*/
-    color: #757575;
-    /*font-weight: bold*/
-}
-
-nav.top form, nav.top ul {
-    display: inline-block;
-    position: relative;
+        right: 0px;
+        top: 1px;
+        bottom: 1px;
+        cursor: pointer;
+        opacity: .5;
     }
 
-nav.top input.text, nav.top input.text.defaultvalue {
-    border: 1px solid transparent;
-    background: transparent;
-	//width: 4em 
-	//text-align: right
-	//padding-right: 22px
-    border: 2px solid #d8d8d8;
-    width: 10em;
-    padding-left: .3em;
-}
-
-nav.top input.text:focus, nav.top input.text.no-defaultvalue {
-    background-color: white;
-    text-transform: none;
-    color: #000;
-    //	text-align: left
-    //	width: 8em
-    //	border: 1px solid #bababa
-}
-
-nav.top input.button {
-    display: block;
-    text-indent: -999px;
-    border: none;
-    background: no-repeat center url(https://de.wikipedia.org/w/skins/Vector/resources/skins.vector.styles/images/search.svg);
-    width: 2.2em;
-    position: absolute;
-    right: 0px;
-    top: 1px;
-    bottom: 1px;
-    cursor: pointer;
-    opacity: .5;
-}
-
-nav.top a {
-    display: inline-block;
-    margin-right: 1em;
-}
-
-nav.top li.active a {
-    /* Aktuell ausgewaehlte Farben */
-    /*color: #124b6b*/
-    border-bottom: 2px solid #E90015;
-}
-
-@media all and (max-width: 440px) {
-    nav.top {
-        padding: 1em 0 1em; 
+    a {
+        display: inline-block;
+        margin-right: 1em;
     }
-    nav.top li {
+
+    li.active a {
+        /* Aktuell ausgewaehlte Farben */
+        /*color: #124b6b*/
+        border-bottom: 2px solid #E90015;
+    }
+    
+    /* Topnav dropdowns as mixin: They only appear at small screens */
+    .nav-dropdown() { // to be applied on the li
         ul, form {
             display: none;
         }
+            
+        //&:focus ul, &:focus form, a:focus + ul, a:focus form
+            //	display: block;
         
-		//&:focus ul, &:focus form, a:focus + ul, a:focus form
-		//	display: block
-    }
-    
-    nav.top:focus {
-		ul, form {
-			display: block;
+        &:focus, &:focus-within {
+            ul, form {
+                display: block;
+            }
         }
-    }
-    
-    #language-chooser, #search-link {
-        display: inline-block;
-        text-indent: -999px;
-        text-align: left;
-        cursor: pointer;
-        overflow: hidden;
-        width: 1.2em;
-        height: 1.2em;
+        
+        a {
+            display: inline-block;
+            text-indent: -999px;
+            text-align: left;
+            cursor: pointer;
+            overflow: hidden;
+            width: 1.2em;
+            height: 1.2em;
 
-        &:hover {
-            opacity: 1.0;
+            &:hover {
+                opacity: 1.0;
+            }
+            
+            /* they all share the background icon: */
+            background-size: contain;
+        }
+    }
+
+    @media all and (max-width: @must-be-singlecolumn) {
+        & {  padding: 1em 0 1em;  }
+        li { .nav-dropdown(); }
+    }
+
+    @media all and (min-width: 440px) {
+        & > ul > li > a {
+            display: none;  // Behelfstexte
         }
     }
     
-    #language-chooser {
-        background: no-repeat center url(images/language-icon.header.svg);
-        background-size: contain;
-        opacity: .5;
+    @media all and (max-width: @sheet-1col-width) {
+        #user-menu { .nav-dropdown(); }
     }
     
-    #search-link {
-        background: no-repeat center url(https://de.wikipedia.org/w/skins/Vector/resources/skins.vector.styles/images/search.svg);
-        opacity: .5;
+    #pt-anonuserpage, #pt-userpage a {
+        background-image: url(/w/skins/Vector/resources/skins.vector.styles/images/user-avatar.svg?b7f58);
+        background-position: left 0;
+        background-repeat: no-repeat;
+        background-size: 1em 1em;
+        padding-left: 20px;
     }
 }
 
-@media all and (min-width: 440px) {
-    nav.top > ul > li > a {
-        display: none;  // Behelfstexte
-    }
+/* These are the nav .button-dropdown() icon defintions */
+#language-chooser > a {
+    background: no-repeat center url(images/language-icon.header.svg);
+    opacity: .5;
+}
+
+#search-link > a {
+    background: no-repeat center url(/w/skins/Vector/resources/skins.vector.styles/images/search.svg);
+    opacity: .5;
+}
+
+#user-menu > a {
+    background: no-repeat center url(/w/skins/Vector/resources/skins.vector.styles/images/user-avatar.svg);
 }
