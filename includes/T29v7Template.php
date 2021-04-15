@@ -53,10 +53,10 @@ class T29v7Template extends BaseTemplate {
             <ul id="nav-primary-mobile">
                 <li><a href="#nav-left">Museum</a>
                 <li><a href="#nav-right">Ausstellung</a>
-                <li><a href="#nav-wiki-side">Wiki</a>
-            </ul>
-            <ul id="nav-horizontal-pageactions">   
-                <?php echo $this->getCactions(); ?>
+                <li><a class="dropdown" href="#nav-wiki-side">Wiki</a>
+                    <ul id="nav-horizontal-pageactions">   
+                        <?php echo $this->getCactions(); ?>
+                    </ul>
             </ul>
         </nav>
     </header>

@@ -60,128 +60,6 @@ body.lang-en h1 a {
 	background-image: url("https://technikum29.de/shared/img-v6/banner.en.svg");
 }
 
-/* Header "horizontal main" navigation */
-header {
-	// The following is only for @media all and (max-width: @max-width-mobile) 
-	nav.horizontal ul  {
-		display: inline-flex;
-		flex-direction: row;
-		justify-content: space-around;
-    }
-
-    nav.horizontal a {
-		flex-grow: 1;
-		padding: 7px;
-		margin-bottom: 3px;
-		font-size: 17px;
-    }
-
-	nav.horizontal  {
-		@media all and (min-width: @must-be-singlecolumn) {
-			position: absolute;
-			right: 0;
-			bottom: 0;
-			margin-right: 2em;
-        }
-		@media all and (max-width: @must-be-singlecolumn) {
-			clear: both;
-        }
-    }
-}
-
-/* Aufklappnavigation der Horizontalen Navi */
-nav.horizontal {
-    & > ul > li > ul { /* .u2 */
-        display: none;
-    }
-    & > ul > li:hover > ul,
-    & > ul > li.dev-force-open > ul {  
-        display: block;
-    }
-}
-
-/* devel: Menu statisch anzeigen */
-/*nav.horizontal li.current.active .u2 { display: block; }*/
-
-nav.horizontal li.active a,
-nav.horizontal li.selected a {
-	/*color: #6F2A41; *//* gedecktes bordot */
-	color: #E90015; /* knalliges Rot von rechter Navi */
-}
-
-nav.horizontal > ul > li > ul  { /* .u2 */
-	position: absolute;
-	z-index: 100; /* Ueber allem */
-	left: 0; /* top: 0; */
-	text-align: left;
-	width: 23em;
-	background-color: white;
-	border-bottom: 3px solid #888;
-	
-	a {
-        padding: .2em .9em;
-    }
-
-    a:hover {
-        background-color: #efefef;
-    }
-
-    nav.horizontal .u2 > li.has-submenu {
-        display: block;
-        margin: 1em 0;
-    }
-}
-
-nav.horizontal li.open-to-left .u2 { /* fixme */
-	left: inherit;
-	right: 0;
-}
-
-/* Fixme from here ... */
-
-nav.horizontal .u3 > li > a {
-	padding-left: 1.9em;
-	font-weight: normal;
-}
-
-nav.horizontal ul.rich-text a {
-	padding-top: .7em; padding-bottom: .7em;
-}
-
-nav.horizontal ul.rich-text a:after {
-	content: ".";
-	display: block;
-	clear: left;
-	height: 0; line-height: 0;
-	visibility: hidden;
-}
-
-nav.horizontal ul.rich-text img {
-	float: left;
-	margin-right: 10px;
-	/*display: none;*/ /* ausblenden */ /* warum ausblenden? */
-}
-
-nav.horizontal ul.rich-text a:hover img {
-	box-shadow: 0px 0px 4px #1a5160;
-	/*outline: 1px solid #1a5160;*/
-}
-
-nav.horizontal ul.rich-text a em {
-	display: block;
-	color: black;
-	text-transform: none;
-	font-weight: normal;
-	font-style: normal;
-	font-size: 13px; /* like body */
-}
-
-nav.horizontal li.small-screen-only {
-	display: none;
-}
-
-/* fixme until here */
-
 
 /* Farben */
 nav.horizontal a,
@@ -191,6 +69,58 @@ nav.side a {
 	/*font-weight: bold;*/
 	opacity: .8;
 }
+
+
+/* Header "horizontal main" navigation */
+nav.horizontal {
+	// The following is only for @media all and (max-width: @max-width-mobile) 
+	ul  {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+    }
+
+    a {
+		flex-grow: 1;
+		padding: 7px;
+		margin-bottom: 3px;
+		font-size: 17px;
+    }
+
+    @media all and (min-width: @must-be-singlecolumn) {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-right: 2em;
+        
+        /* Primary Mobile navigation nur sublevel zeigen */
+        #nav-primary-mobile > li > a {
+            display: none;
+        }
+    }
+    @media all and (max-width: @must-be-singlecolumn) {
+        clear: both;
+        
+        /* Nur primary mobile zeigen */
+        #nav-primary-mobile ul {
+            display: none;
+        }
+    }
+    
+    /*
+    & > ul > li:hover > ul,
+    & > ul > li.dev-force-open > ul {  
+        display: block;
+    }
+    */
+
+    li.active a,
+    li.selected a {
+        /*color: #6F2A41; *//* gedecktes bordot */
+        color: #E90015; /* knalliges Rot von rechter Navi */
+    }
+}
+
 
 /* header "top auxilliary" navigation */
 /* Topnavigation (Nebenheadernavigation) */
