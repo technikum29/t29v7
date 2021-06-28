@@ -20,6 +20,8 @@ class SkinT29v7 extends SkinTemplate {
 	
 	public function getDefaultModules() {
 		$modules = parent::getDefaultModules();
+
+		$modules['styles'][] = 'mediawiki.skinning.content.externallinks';
 		$modules['styles'][] = 'skins.t29v7.styles';
 		$modules['T29v7'][] = 'skins.t29v7.js';
 		
@@ -38,47 +40,16 @@ class SkinT29v7 extends SkinTemplate {
 
 		return $modules;
 	}
-
-	/**
-	 * @param OutputPage $out
-	 */
-	public function setupSkinUserCss( OutputPage $out ) {
-		parent::setupSkinUserCss( $out );
-		
-        $out->addMeta( 'viewport',
-            'width=device-width, initial-scale=1.0, ' .
-            'user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0'
-        );
-
-		//if ( $out->getUser()->getOption( 't29v7-responsive' ) ) {
-			
-/*			$out->addModules( [
-				'skins.t29v7.mobile'
-			] );
-
-			if ( ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) && $out->getUser()->isLoggedIn() ) {
-				$out->addModules( [ 'skins.t29v7.mobile.echohack' ] );
-			}
-			if ( ExtensionRegistry::getInstance()->isLoaded( 'UniversalLanguageSelector' ) ) {
-				$out->addModules( [ 'skins.t29v7.mobile.uls' ] );
-			}
-		} else {
-			$styleModule = 'skins.t29v7.styles';
-		}
-		*/
-
-		$out->addModuleStyles( [
-			'mediawiki.skinning.content.externallinks',
-			#'skins.t29v7.styles',
-			#'skins.t29v7.js'
-		] );
-	}
 	
     public static function onOutputPageBodyAttributes( OutputPage $out, Skin $skin, &$bodyAttrs ) {
         // t29 skin requires some body.lang-de or body.lang-en.
         // Mediawiki does the same with html[lang="de"] or html[lang="en"], but hey, we got a hook
         // for this.
         $bodyAttrs["class"] .= " lang-" . $skin->getTitle()->getPageViewLanguage()->getHtmlCode();
+		$out->addMeta( 'viewport',
+			'width=device-width, initial-scale=1.0, ' .
+			'user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0'
+		);
     }
     
 	/**
